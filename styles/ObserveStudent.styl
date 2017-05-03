@@ -1,0 +1,56 @@
+button-group-button(color)
+  background-color color
+  // border-color darken(color, 10%)
+  border-color lighten(color, 20%)
+  &:active
+    background-color color
+  &:hover
+    background-color darken(color, 10%)
+  &:focus
+    outline none
+
+.student-observation
+  float left
+
+  .name
+    text-align center
+  .subjects
+    margin-top 10px
+
+    button
+      button-group-button(#FFE493)
+
+  .instruction-types
+    margin-top 10px
+
+    button
+      button-group-button(#F9D3BA)
+
+  .focus
+    margin-top 10px
+
+    button
+      button-group-button(#D6D6D6)
+
+  .behaviors
+    text-align center
+    margin-top 10px
+
+    button
+      button-group-button(lightblue)
+
+  .events
+    display flex
+    margin-top 10px
+
+    .cols
+      flex 1
+      display flex
+      flex-direction column
+      justify-content space-between
+
+    button
+      font-size 12px
+      padding 1px
+      margin 1px
+      white-space pre-wrap
