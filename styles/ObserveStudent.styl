@@ -1,56 +1,104 @@
-button-group-button(color)
-  background-color color
-  // border-color darken(color, 10%)
-  border-color lighten(color, 20%)
-  &:active
+toggle-style(color)
+  .item:checked + .toggle-labels
     background-color color
-  &:hover
-    background-color darken(color, 10%)
-  &:focus
-    outline none
+  .section-title:after
+    border-color lighten(color, 50%)
 
 .student-observation
   float left
-
+  box-shadow 0 0 19px -3px #ddd
+  border 1px solid #eee
+  margin 0 -10px
+  padding 15px
   .name
     text-align center
+    color #333
+    font-weight bold
+    font-size 20px
   .subjects
     margin-top 10px
-
-    button
-      button-group-button(#FFE493)
-
+    toggle-style(#80bd39)
   .instruction-types
     margin-top 10px
-
-    button
-      button-group-button(#F9D3BA)
-
+    toggle-style(#efb621)
   .focus
     margin-top 10px
-
-    button
-      button-group-button(#D6D6D6)
-
+    toggle-style(#2ea3d8)
   .behaviors
-    text-align center
     margin-top 10px
-
-    button
-      button-group-button(lightblue)
-
+    .section-title:after
+      border-color lighten(#61c161, 50%)
+    .toggle-labels
+        text-align center
   .events
-    display flex
     margin-top 10px
+    border-radius 3px
+    toggle-style(#4480d6)
+    .toggle-labels
+        justify-content left
 
-    .cols
-      flex 1
-      display flex
-      flex-direction column
-      justify-content space-between
+.section-title
+  font-size 16px
+  font-weight bold
+  margin 20px 0 10px 0
+  padding-bottom 6px
+  color #616161
+  display inline-block
+  &:after
+    content ''
+    display block
+    padding-top 6px
+    padding-right: 10px
+    border-bottom 3px solid #fff;
 
-    button
-      font-size 12px
-      padding 1px
-      margin 1px
-      white-space pre-wrap
+.toggle
+  .item
+    display none
+  .item:checked + .toggle-labels
+    .off
+      background-color transparent
+      color inherit
+    .on
+      background-color #61c161;
+      color #fff
+  .off, .on
+    width 50%
+    height 100%
+    border-radius 3px
+    justify-content center
+    padding 10px 0
+  .on
+    border-right 2px solid #eee
+  .off
+    background-color #e4e4e4
+  .toggle-labels
+    position relative
+    cursor pointer
+    display flex
+    user-select none
+    border-radius 3px
+    box-shadow 0 0 0 2px #d3d3d3
+    min-height 30px
+    color #717171
+
+.toggle-group
+  border-radius 3px
+  .toggle-labels
+    background-color #f1f1f1
+    &:hover, &:active
+      background-color #e4e4e4
+  .item:checked + .toggle-labels
+    background-color #2ea3d8
+    color #fff
+  .toggle-labels
+    padding 10px 20px
+    box-shadow none
+    margin 0
+    justify-content center
+    border-radius 0
+    border-top 1px solid #fff
+    &:first-of-type
+      border-top 0
+      border-radius 3px 3px 0 0
+    &:last-child
+      border-radius 0 0 3px 3px

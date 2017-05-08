@@ -9,23 +9,28 @@ storiesOf('ObserveStudent', module)
     return getMainSection();
   })
 
+function Users(prop) {
+  let items = [],
+      classMd = 3,
+      userLength = prop.children.length;
+    if(userLength == 2) classMd = 6;
+    for(var i=0; i <= userLength-1; i++) {
+      items.push(<Col md={classMd}> {prop.children[i]()}  </Col>);
+    }
+  return (
+    <Row>
+      {items}
+    </Row>
+  );
+}
+
 function getMainSection() {
   return (
     <Grid>
-      <Row style={{ border: '1px silver dotted' }}>
-        <Col md={3}>
-          <ObserveStudent />
-        </Col>
-        <Col md={3}>
-          <ObserveStudent />
-        </Col>
-        <Col md={3}>
-          <ObserveStudent />
-        </Col>
-        <Col md={3}>
-          <ObserveStudent />
-        </Col>
-      </Row>
+      <Users>
+        {(user) => <ObserveStudent toggle="toggle-task-1" />}
+        {(user) => <ObserveStudent toggle="toggle-task-2" />}
+      </Users>
     </Grid>
   );
 }
